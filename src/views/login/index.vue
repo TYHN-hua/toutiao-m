@@ -94,7 +94,7 @@ export default {
         this.$store.commit('SET_TOKEN', token) //调用vuex的方法
 
         //跳转到profile
-        this.$router.push('/profile')
+        this.$router.push('/my')
         this.$toast.success('登录成功')
         // console.log(res)
       } catch (error) {
