@@ -18,6 +18,7 @@ export default {
   computed: {
     //判断是否登录，就是判断有无Token，显示对应的盒子，根据计算属性
     isLogin() {
+      console.log(this);
       return !!this.$store.state.tokenObj.token     // !!为转换为布尔值
     }
   },
