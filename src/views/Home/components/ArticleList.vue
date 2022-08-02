@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-pull-refresh v-model="refreshLoading" @refresh="loadNextPageArticle">
+    <van-pull-refresh v-model="refreshLoading" @refresh="loadNextPageArticle" success-text="刷新成功">
         <van-list
       v-model="loading"
       @load="loadNextPageArticle"

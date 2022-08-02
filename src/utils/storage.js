@@ -1,4 +1,5 @@
 class Storage {
+    //获取本地数据
     get(key) {
         const value = localStorage.getItem(key);
 
@@ -10,7 +11,7 @@ class Storage {
         }
     }
 
-
+    //存储本地数据
     set(key, value) {
         if (typeof value === 'object' && value !== null)  {
             value = JSON.stringify(value);
@@ -18,7 +19,7 @@ class Storage {
         localStorage.setItem(key, value);
     }
 
-
+   // 删除本地数据
     remove(key) {
         localStorage.removeItem(key)
     }
