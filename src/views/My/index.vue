@@ -1,11 +1,15 @@
 <template>
   <div>
     <header>
-      <div class="login" v-if="isLogin">登录后的</div>
+      <div class="login" v-if="isLogin">登录后的
+        <button @click="$router.push('/user')">编辑资料</button>
+      </div>
       <div class="no-login" v-else>未登录的</div>
     </header>
 
-    <main>收藏、历史</main>
+    <main>收藏、历史
+      <button @click="$router.push('/login')">登录</button>
+    </main>
 
     <footer>
       <button v-if="isLogin" @click="logout">退出</button>

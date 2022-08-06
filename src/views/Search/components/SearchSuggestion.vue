@@ -30,7 +30,9 @@ export default {
   },
   methods: {
     //获取搜索建议
-    // 做防抖：1，延迟执行  2，干掉上一次的定时器
+    // 做防抖：1，延迟执行  2，干掉上一次的定时器  
+    // 普通写法：函数要发请求，还要防抖，尽量避免，让一个函数只完成一个功能
+    // 可引入第三方包lodash，单独进行防抖，写法如下：
     getSearchSuggestion: debounce(async function () {
       try {
         const { data } = await getSearchSuggestionsAPI(this.keywords)
@@ -42,6 +44,7 @@ export default {
       }
     }, 300)
   },
+  //对请求进行深度监听
   watch: {
     keywords: {
       immediate: true,
