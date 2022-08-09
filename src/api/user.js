@@ -21,7 +21,7 @@ export const getSmsCode = (mobile) => {
     })
 }
 
-//编辑个人资料
+//获取用户个人资料
 export const getUserInfo = () => {
     return request({
         url: '/v1_0/user/profile'
@@ -42,5 +42,14 @@ export const uploadAvator = (file) => {
         url:'/v1_0/user/photo',
         method: 'PATCH',
         data: fm
+    })
+}
+
+//编辑用户个人资料
+export const setUserInfo = (data) => {
+    return request({
+        url: '/v1_0/user/profile',
+        method: 'PATCH',
+        data,
     })
 }

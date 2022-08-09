@@ -5,6 +5,7 @@
       icon="search"
       v-for="(item, index) in highlightSuggestions"
       :key="index"
+      @click="getSuggest(index)"
     >
       <template #title>
         <span v-html="item"></span>
@@ -19,7 +20,9 @@ import { debounce } from 'lodash'
 export default {
   data() {
     return {
-      suggestions: []
+      suggestions: [],
+      title:"",
+      text:"",
     }
   },
   props: {
@@ -42,7 +45,11 @@ export default {
       } catch (error) {
         this.$toast.fail('获取建议失败')
       }
-    }, 300)
+    }, 300),
+    async getSuggest(i) {
+      this.text = this.suggestions[i]
+      this.$emit('send',this.text)
+    }
   },
   //对请求进行深度监听
   watch: {
