@@ -15,6 +15,7 @@
         v-for="item in articles"
         :key="item.art_id"
         :articleInfo="item"
+        @click.native="clickArticle(item.art_id)"
       ></ArticleItem>
     </van-list>
     </van-pull-refresh>
@@ -51,6 +52,7 @@ export default {
     async getFirstPageArticle() {
       try {
         const { data } = await getArticleAPI(this.id, +new Date())
+        console.log(data);
         this.articles = data.data.results
         this.pre_timestamp = data.data.pre_timestamp
       } catch (error) {
@@ -88,6 +90,12 @@ export default {
           this.loading = false
           this.refreshLoading = false
       }
+    },
+    clickArticle(id) {
+      // console.log('123');
+      this.$router.push({
+        path:`/detail?art_id=${id}`
+      })
     }
   }
 }

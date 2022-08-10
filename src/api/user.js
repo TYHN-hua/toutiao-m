@@ -53,3 +53,29 @@ export const setUserInfo = (data) => {
         data,
     })
 }
+
+//关注用户
+export const addFollowAPI = (userId) => {
+    return request({
+        url: '/v1_0/user/followings',
+        method: 'POST',
+        data:{
+            target:userId
+        }
+    })
+}
+
+//取消关注用户
+export const deleteFollowAPI = (target) => {
+    return request({
+        url: `/v1_0/user/followings/${target}`,
+        method: 'DELETE',
+    })
+}
+
+//获取用户自己的信息
+export const getUserInfoAPI = () => {
+    return request({
+        url: "/v1_0/user",
+    })
+}
