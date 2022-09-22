@@ -45,6 +45,7 @@
       <div class="article-content markdown-body" v-html="article.content"></div>
 
       <van-divider>正文结束</van-divider>
+      <commentList></commentList>
     </div>
     <!-- 底部区域 -->
     <div class="article-bottom">
@@ -82,6 +83,7 @@
 import { getArticleListAPI, addFollowAPI, deleteFollowAPI } from '@/api'
 import './github-markdown.css'
 import collection from "./components/collection.vue"
+import commentList from './components/commentList.vue'
 export default {
   name:'ArticleItem',
   data() {
@@ -131,7 +133,8 @@ export default {
     }
   },
   components: {
-    collection
+    collection,
+    commentList,
   }
 }
 </script>

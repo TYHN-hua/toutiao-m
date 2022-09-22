@@ -8,5 +8,7 @@ export * from './channel'
 export * from './news'
 
 export * from './search'
+
+export * from './comments'
 // 引入默认导出的东西
 // export {default as getUser} from './user'
